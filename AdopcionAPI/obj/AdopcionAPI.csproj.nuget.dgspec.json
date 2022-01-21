@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MXR\\source\\repos\\AdopcionAPI\\AdopcionAPI\\AdopcionAPI.csproj": {}
+    "C:\\Users\\MXR\\source\\repos\\AdopcionAPIGit\\AdopcionAPI\\AdopcionAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MXR\\source\\repos\\AdopcionAPI\\AdopcionAPI\\AdopcionAPI.csproj": {
+    "C:\\Users\\MXR\\source\\repos\\AdopcionAPIGit\\AdopcionAPI\\AdopcionAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MXR\\source\\repos\\AdopcionAPI\\AdopcionAPI\\AdopcionAPI.csproj",
+        "projectUniqueName": "C:\\Users\\MXR\\source\\repos\\AdopcionAPIGit\\AdopcionAPI\\AdopcionAPI.csproj",
         "projectName": "AdopcionAPI",
-        "projectPath": "C:\\Users\\MXR\\source\\repos\\AdopcionAPI\\AdopcionAPI\\AdopcionAPI.csproj",
+        "projectPath": "C:\\Users\\MXR\\source\\repos\\AdopcionAPIGit\\AdopcionAPI\\AdopcionAPI.csproj",
         "packagesPath": "C:\\Users\\MXR\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MXR\\source\\repos\\AdopcionAPI\\AdopcionAPI\\obj\\",
+        "outputPath": "C:\\Users\\MXR\\source\\repos\\AdopcionAPIGit\\AdopcionAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
