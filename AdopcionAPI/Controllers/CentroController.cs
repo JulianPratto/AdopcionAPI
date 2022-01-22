@@ -18,8 +18,6 @@ namespace AdopcionAPI.Controllers
         public CentroController(ApplicationDbContext context)
         {
             this.context = context;
-            //This is a test prueba para primer push 
-            //prueba para segundo push
         }
 
         [HttpGet]
