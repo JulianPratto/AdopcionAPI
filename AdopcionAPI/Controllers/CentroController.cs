@@ -1,4 +1,6 @@
-﻿using AdopcionAPI.Models;
+﻿using AdopcionAPI.DTO;
+using AdopcionAPI.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,11 +15,13 @@ namespace AdopcionAPI.Controllers
     [Route("api/centros")]
     public class CentroController : ControllerBase
     {
-        private readonly ApplicationDbContext context;
+        private readonly ApplicationDbContext context; //campo a usar para contexto
+        private readonly IMapper mapper; //campo a usar para mapear
 
-        public CentroController(ApplicationDbContext context)
+        public CentroController(ApplicationDbContext context, IMapper mapper)
         {
             this.context = context;
+            this.mapper = mapper;
         }
 
         [HttpGet]
@@ -38,15 +42,33 @@ namespace AdopcionAPI.Controllers
             return centro;
         }
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Centro centro)
+        public async Task<ActionResult> Post([FromBody] CentroCreacionDTO centroCreacionDTO)
         {
-            var existeCentroConElMismoNombre = await context.Centros.AnyAsync(x => x.Nombre == centro.Nombre);
+            var existeCentroConElMismoNombre = await context.Centros.AnyAsync(x => x.Nombre == centroCreacionDTO.Nombre);
             if (existeCentroConElMismoNombre)
             {
-                return BadRequest($"Existe un centro con el nombre {centro.Nombre}");
+                return BadRequest($"Existe un centro con el nombre {centroCreacionDTO.Nombre}");
             }
+            /*
+            *Al usar un objeto DTO no se puede mandar al contexto(contrxt.Add()) este dato centroCreacionDTO.Nombre
+            para solventar este problema se crea la variable centro = new Centro, quien si es aceptado
+            por context.Add() entonces se pasan los datos recibidos desde la BD por crentroCreacionDTO.Nombre a Nombre
+            igualmente con la direccion y el objeto centro ahora contiene ambos datos que se pasaran a la api
+            en context.Add(centro);
 
-            context.Add(centro);
+            ESTE PROCESO SE CONOCE COMO MAPEO O MAPEAR, MAPPING
+            */
+            /*
+            var centro = new Centro
+            {
+                Nombre = centroCreacionDTO.Nombre,
+                Direccion = centroCreacionDTO.Direccion
+            };//MAPEO
+            */
+
+          //  variable              destino         origen
+            var centro = mapper.Map<Centro>(centroCreacionDTO);
+            context.Add(centro);//PROCESO
             await context.SaveChangesAsync();
 
             return Ok();

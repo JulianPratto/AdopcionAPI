@@ -27,7 +27,9 @@ namespace AdopcionAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //configurando automapper
             services.AddAutoMapper(typeof(Startup));
+
             //Configurar para el proyecto el DBContext
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")
