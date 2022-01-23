@@ -27,7 +27,7 @@ namespace AdopcionAPI.Controllers
             return centros;
         }
 
-        [HttpGet("{if}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Centro>> Get(int id)
         {
             var centro = await context.Centros.FirstOrDefaultAsync(centroDB=>centroDB.Id==id);
