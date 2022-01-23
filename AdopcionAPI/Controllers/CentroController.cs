@@ -53,5 +53,19 @@ namespace AdopcionAPI.Controllers
             return Ok();
 
         }
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult> Put(int id,[FromBody]Centro centro)
+        {
+            var existeCentro = await context.Centros.AnyAsync(centroDB => centroDB.Id == id);
+            if (!existeCentro)
+            {
+                return NotFound();
+            }
+
+            centro.Id = id;
+            context.Entry(centro).State = EntityState.Modified;
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }
