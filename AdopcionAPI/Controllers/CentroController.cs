@@ -50,7 +50,7 @@ namespace AdopcionAPI.Controllers
                 return BadRequest($"Existe un centro con el nombre {centroCreacionDTO.Nombre}");
             }
             /*
-            *Al usar un objeto DTO no se puede mandar al contexto(contrxt.Add()) este dato centroCreacionDTO.Nombre
+            *Al usar un objeto DTO no se puede mandar al contexto(context.Add()) este dato centroCreacionDTO.Nombre
             para solventar este problema se crea la variable centro = new Centro, quien si es aceptado
             por context.Add() entonces se pasan los datos recibidos desde la BD por crentroCreacionDTO.Nombre a Nombre
             igualmente con la direccion y el objeto centro ahora contiene ambos datos que se pasaran a la api
