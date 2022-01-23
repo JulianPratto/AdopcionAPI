@@ -27,7 +27,7 @@ namespace AdopcionAPI.Controllers
             return centros;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<Centro>> Get(int id)
         {
             var centro = await context.Centros.FirstOrDefaultAsync(centroDB=>centroDB.Id==id);
@@ -44,7 +44,6 @@ namespace AdopcionAPI.Controllers
             if (existeCentroConElMismoNombre)
             {
                 return BadRequest($"Existe un centro con el nombre {centro.Nombre}");
-
             }
 
             context.Add(centro);
@@ -78,6 +77,13 @@ namespace AdopcionAPI.Controllers
             context.Remove(new Centro() { Id = id });
             await context.SaveChangesAsync();
             return NoContent();
+        }
+
+        [HttpGet("{nombre}")]
+        public async Task<ActionResult<List<Centro>>>Get(string nombre)
+        {
+            var centros = await context.Centros.Where(centroDB => centroDB.Nombre.Contains(nombre)).ToListAsync();
+            return centros;
         }
     }
 }
