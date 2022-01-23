@@ -67,5 +67,17 @@ namespace AdopcionAPI.Controllers
             await context.SaveChangesAsync();
             return NoContent();
         }
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var existeCentro = await context.Centros.AnyAsync(centroDB => centroDB.Id == id);
+            if(!existeCentro)
+            {
+                return NotFound();
+            }
+            context.Remove(new Centro() { Id = id });
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }
