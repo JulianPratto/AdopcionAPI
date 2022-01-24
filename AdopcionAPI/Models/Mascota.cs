@@ -17,6 +17,6 @@ namespace AdopcionAPI.Models
 
         public int CentroId { get; set; }
 
-        public Centro Centro { get; set; }
+        //public Centro Centro { get; set; }
     }
 }

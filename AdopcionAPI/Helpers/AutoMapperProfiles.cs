@@ -12,8 +12,10 @@ namespace AdopcionAPI.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<CentroCreacionDTO, Centro>();
+            CreateMap<CentroCreacionDTO, Centro>();//sin ReverseMap solo se convierten datos de izquierda a derecha segun el orden que hayamos usado
             CreateMap<MascotaCreacionDTO, Mascota>();
+            CreateMap<Mascota, MascotaDTO>().ReverseMap();//ReverseMap indica que se puede convertir en ambas direcciones
+            CreateMap<Mascota, MascotaConsultaConCentroDTO>();
         }
         
     }
