@@ -18,8 +18,10 @@ namespace AdopcionAPI
         //configurar todos los modelos del proyecto que necesitemos pegar con DB
         //Asocia el modelo centro con la relacion centros
         //public DbSet<Modelo> Tabla
+    
+        //acceso     modelo    Tabla
         public DbSet<Centro> Centros { get; set; }
-        //public DbSet<Mascota> Mascotas { get; set; }
+        public DbSet<Mascota> Mascotas { get; set; }
     }
 }
 

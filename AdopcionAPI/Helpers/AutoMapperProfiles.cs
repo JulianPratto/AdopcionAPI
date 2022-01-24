@@ -13,6 +13,7 @@ namespace AdopcionAPI.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<CentroCreacionDTO, Centro>();
+            CreateMap<MascotaCreacionDTO, Mascota>();
         }
         
     }
