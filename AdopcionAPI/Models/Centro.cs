@@ -15,8 +15,5 @@ namespace AdopcionAPI.Models
         [StringLength(150)]
         public string Nombre { get; set; }
         //public List<Mascota> Mascotas { get; set; }
-        [StringLength(100)]
-        public string Direccion { get; set; }
-
     }
 }
