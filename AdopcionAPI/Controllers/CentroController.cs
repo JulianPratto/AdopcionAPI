@@ -107,5 +107,7 @@ namespace AdopcionAPI.Controllers
             var centros = await context.Centros.Where(centroDB => centroDB.Nombre.Contains(nombre)).ToListAsync();
             return centros;
         }
+        //consulta que permite consultar el centro y devuelve todas las mascotas
+
     }
 }
