@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MXR\\source\\repos\\AdopcionAPIGit\\AdopcionAPI\\AdopcionAPI.csproj": {}
+    "C:\\Users\\Admin\\source\\repos\\AdopcionAPI\\AdopcionAPI\\AdopcionAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MXR\\source\\repos\\AdopcionAPIGit\\AdopcionAPI\\AdopcionAPI.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\AdopcionAPI\\AdopcionAPI\\AdopcionAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MXR\\source\\repos\\AdopcionAPIGit\\AdopcionAPI\\AdopcionAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\AdopcionAPI\\AdopcionAPI\\AdopcionAPI.csproj",
         "projectName": "AdopcionAPI",
-        "projectPath": "C:\\Users\\MXR\\source\\repos\\AdopcionAPIGit\\AdopcionAPI\\AdopcionAPI.csproj",
-        "packagesPath": "C:\\Users\\MXR\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MXR\\source\\repos\\AdopcionAPIGit\\AdopcionAPI\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\AdopcionAPI\\AdopcionAPI\\AdopcionAPI.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\AdopcionAPI\\AdopcionAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\MXR\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

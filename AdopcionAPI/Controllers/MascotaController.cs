@@ -22,6 +22,7 @@ namespace AdopcionAPI.Controllers
             this.context = context;
             this.mapper = mapper;
         }
+        
         [HttpGet]
         public async Task<ActionResult<List<MascotaDTO>>> Get()
         {
@@ -29,6 +30,8 @@ namespace AdopcionAPI.Controllers
 
             return mapper.Map<List<MascotaDTO>>(mascotas);
         }
+
+        /*
         [HttpGet("{id:int}", Name = "obtenerMascota")]
         public async Task<ActionResult<MascotaDTO>> Get(int id)
         {
@@ -39,6 +42,8 @@ namespace AdopcionAPI.Controllers
             }
             return mapper.Map<MascotaDTO>(mascota);
         }
+        */
+
         [HttpGet("{id:int}/centro", Name = "obtenerMascotaConCentro")]
         public async Task<ActionResult<MascotaConsultaConCentroDTO>> Get(int id, [FromQuery] bool conCentro = true)
         {
@@ -51,16 +56,11 @@ namespace AdopcionAPI.Controllers
             var centro = new Centro();
             if (conCentro)
             {
-                //buscar la informacion del centro de la mascota por medio del id del centro de la mascota contra el id en la tabla centros y sacar el detalle de dicho centro
-
                 centro = await context.Centros.FirstOrDefaultAsync(centroDB => centroDB.Id == mascota.CentroId);
                 mascotaConsultaDTO.Centro = centro;
             }
             return mascotaConsultaDTO;
         }
-
-
-
 
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] MascotaCreacionDTO mascotaCreacionDTO)
@@ -108,5 +108,7 @@ namespace AdopcionAPI.Controllers
             await context.SaveChangesAsync();
             return NoContent();
         }
+
+        
     }
 }

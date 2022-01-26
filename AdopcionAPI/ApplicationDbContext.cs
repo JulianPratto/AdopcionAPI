@@ -22,6 +22,8 @@ namespace AdopcionAPI
         //acceso     modelo    Tabla
         public DbSet<Centro> Centros { get; set; }
         public DbSet<Mascota> Mascotas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Adopcion> Adopciones { get; set; }
     }
 }
 

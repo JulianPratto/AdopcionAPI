@@ -23,14 +23,15 @@ namespace AdopcionAPI.Controllers
             this.context = context;
             this.mapper = mapper;
         }
-
+        
         [HttpGet]
         public async Task<ActionResult<List<Centro>>> Get()
         {
             var centros = await context.Centros.ToListAsync(); //Select * From Centros;
             return centros;
         }
-
+        
+        /*
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Centro>> Get(int id)
         {
@@ -41,6 +42,36 @@ namespace AdopcionAPI.Controllers
             }
             return centro;
         }
+        */
+        
+
+        [HttpGet("{nombre}")]
+        public async Task<ActionResult<List<Centro>>> Get(string nombre)
+        {
+            var centros = await context.Centros.Where(centroDB => centroDB.Nombre.Contains(nombre)).ToListAsync();
+            return centros;
+        }
+
+        [HttpGet("{id:int}/mascotas", Name = "obtenerCentroConMascotas")]
+        public async Task<ActionResult<CentroConsultaConMascotasDTO>> Get(int id, [FromQuery] bool conMascotas = true)
+        {
+            var centro = await context.Centros.FirstOrDefaultAsync(centroDB => centroDB.Id == id);
+            if (centro == null)
+            {
+                return NotFound();
+            }
+            var centroConsultaConMascotasDTO = mapper.Map<CentroConsultaConMascotasDTO>(centro);
+
+            var mascotas = new List<Mascota>();
+            if (conMascotas)
+            {
+                mascotas = await context.Mascotas.Where(mascotaDB => mascotaDB.CentroId == centro.Id).ToListAsync();
+                centroConsultaConMascotasDTO.Mascotas = mascotas;
+            }
+
+            return centroConsultaConMascotasDTO;
+        }
+
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] CentroCreacionDTO centroCreacionDTO)
         {
@@ -101,13 +132,6 @@ namespace AdopcionAPI.Controllers
             return NoContent();
         }
 
-        [HttpGet("{nombre}")]
-        public async Task<ActionResult<List<Centro>>>Get(string nombre)
-        {
-            var centros = await context.Centros.Where(centroDB => centroDB.Nombre.Contains(nombre)).ToListAsync();
-            return centros;
-        }
-        //consulta que permite consultar el centro y devuelve todas las mascotas
-
+        
     }
 }
